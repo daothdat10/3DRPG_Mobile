@@ -1,9 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
 {
+
+    //xp player
+    public float xpPlayer;
+    private float xpMaxPlayer=5f;
+    public LevelSystem xpLevel;
+    public TextMeshProUGUI xpText;
+
+    
     public string characterName;
     private Damage x2dame;
     [SerializeField] GameObject hitVFX;
@@ -20,6 +29,7 @@ public class HealthSystem : MonoBehaviour
     private bool hasImmorta = false; //Kiem Tra bat tu
     private bool hasx2dame=false;
 
+    //hp player
     public int health  , healthMax = 10;
     public FloatingHealthbar healthbar;
     Animator animator;
@@ -28,8 +38,9 @@ public class HealthSystem : MonoBehaviour
     public GameObject immotal;
 
     private Coroutine igemCountdown;
+    
 
-
+    
     public string CharacterName
     {
         get { return characterName; }
@@ -40,15 +51,25 @@ public class HealthSystem : MonoBehaviour
 
     void Awake()
     {
+        xpPlayer = 0;
+        xpLevel = GameObject.Find("XPSlider").GetComponent<LevelSystem>();
         health = healthMax;
         healthbar = GetComponentInChildren<FloatingHealthbar>();
+        xpLevel = GetComponentInChildren<LevelSystem>();
         animator = GetComponent<Animator>();
+        
+        
     }
 
     
     public virtual void Update()
     {
         igemsIndicator.transform.position = transform.position + new Vector3(0, 2f, 0);
+        if (Input.GetKeyDown(KeyCode.Q) && xpPlayer<=xpMaxPlayer)
+        {
+            xpdieEnemy();
+        }
+        
         
     }
 
@@ -65,8 +86,14 @@ public class HealthSystem : MonoBehaviour
         }
     }
 
-    
-    
+
+    public void xpdieEnemy()
+    {
+        xpPlayer ++;
+        xpText.text = xpPlayer.ToString();
+        
+        xpLevel.xpLevelUp(xpPlayer, xpMaxPlayer);
+    }
 
     public virtual void Die()
     {
@@ -111,6 +138,7 @@ public class HealthSystem : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        
         if (other.gameObject.CompareTag("Gem1") || other.gameObject.CompareTag("GemBlue"))
         {
 
@@ -126,7 +154,11 @@ public class HealthSystem : MonoBehaviour
             }
             igemCountdown = StartCoroutine((IEnumerator)IgemsCoroutine());
         }
+
+        
     }
+
+   
      IEnumerator IgemsCoroutine()
     {
             
@@ -143,5 +175,8 @@ public class HealthSystem : MonoBehaviour
         GameObject hit = Instantiate(hitVFX,hitPosition,Quaternion.identity);
         Destroy(hit,3f);
     }
+
+    
+
     
 }

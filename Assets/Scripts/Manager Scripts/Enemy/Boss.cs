@@ -23,11 +23,16 @@ public class Boss : MonoBehaviour
         {
             if (!hasBoss.CompareTag("Boss") || enemyBoss.health <= 0)
             {
-                
                     igemsIndicator.gameObject.SetActive(true);
                 
             }
-           
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Bullet")
+        {
+            enemyBoss.TakeDamage(1);
         }
     }
 

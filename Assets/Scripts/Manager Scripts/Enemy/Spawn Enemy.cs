@@ -24,7 +24,7 @@ public class SpawnEnemy : MonoBehaviour
     void Start()
     {
         spawm(round);
-        StartCoroutine(SpawnCoin());
+        
     }
 
     // Update is called once per frame
@@ -40,6 +40,9 @@ public class SpawnEnemy : MonoBehaviour
                 spawm(round);
             }
         }
+
+        
+        
     }
     void spawm(int roundBoss)
     {
@@ -52,12 +55,14 @@ public class SpawnEnemy : MonoBehaviour
         if(round == 1)
         {
             Debug.Log("The Enemy has appeared");
+            StartCoroutine(SpawnCoin());
             toSpawn = enemyList;
         }else if(round == 2)
         {
             Debug.Log("The boss has appeared");
             toSpawn= spawnBoss;
-
+            StartCoroutine(SpawmEnemy());
+            StartCoroutine(SpawnCoin());
         }
         else
         {
@@ -71,5 +76,15 @@ public class SpawnEnemy : MonoBehaviour
     {
         Instantiate(Coins, transform.position, transform.rotation);
         yield return new WaitForSeconds(2);
+    }
+
+    IEnumerator SpawmEnemy()
+    {
+        for (int i = 1; i <= 3; i++)
+        {
+            Instantiate(enemyList,transform.position,transform.rotation);
+        }
+        
+        yield return new WaitForSeconds(5f);
     }
 }

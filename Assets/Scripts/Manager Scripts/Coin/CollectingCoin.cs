@@ -7,7 +7,9 @@ using UnityEngine;
 public class CollectingCoin : MonoBehaviour
 {
     [SerializeField] private GameObject PileOfCoinParent;
-
+    
+    [SerializeField] private AudioSource CointSound;
+    
     [SerializeField] private TextMeshProUGUI Counter;
 
     [SerializeField] private Vector3[] InitialPos;
@@ -53,18 +55,18 @@ public class CollectingCoin : MonoBehaviour
             PileOfCoinParent.transform.GetChild(i).DOScale(1f, 0.3f).SetDelay(delay + 0.5f).SetEase(Ease.OutBack);
 
 
-            PileOfCoinParent.transform.GetChild(i).GetComponent<RectTransform>().DOAnchorPos(new Vector2(25.4f, 450f), 3f).SetDelay(delay + 1.8f).SetEase(Ease.InBack);
+            PileOfCoinParent.transform.GetChild(i).GetComponent<RectTransform>().DOAnchorPos(new Vector2(25.4f, 492f), 3f).SetDelay(delay + 1.8f).SetEase(Ease.InBack);
 
 
             PileOfCoinParent.transform.GetChild(i).DORotate(Vector3.zero, 0.5f).SetDelay(delay + 0.5f).SetEase(Ease.Flash).OnComplete(CountCoinsByComplete);
 
 
             PileOfCoinParent.transform.GetChild(i).DOScale(1f, 0.8f).SetDelay(delay + 0.8f).SetEase(Ease.OutBack);
-            
+            CointSound.Play();
 
             delay += 0.1f;
         }
-
+        
 
 
     }
@@ -88,8 +90,9 @@ public class CollectingCoin : MonoBehaviour
             Counter.text = PlayerPrefs.GetInt("CountCoin").ToString();
 
             timer += 1;
-
+            
             yield return new WaitForSecondsRealtime(timer);
         }
+        
     }
 }

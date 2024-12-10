@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,14 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
-    
+    //hp enemy
     public float healthMax=3 ;
     public float health;
     protected FloatingHealthbar healthh;
+
+    private HealthSystem _healthSystem;
+    
+    
     [SerializeField] GameObject hitVFX;
     [SerializeField] ParticleSystem dieVFX;
 
@@ -34,6 +39,7 @@ public class Enemy : MonoBehaviour
     float newDestinationCD = 0.5f;
     public virtual void Start()
     {
+        _healthSystem = FindObjectOfType<HealthSystem>();
         if (boss)
         {
             spawnManager = GetComponent<SpawnEnemy>();
@@ -89,9 +95,9 @@ public class Enemy : MonoBehaviour
     }
     public  void Die()
     {
-
         
         Destroy(gameObject);
+        _healthSystem.xpdieEnemy();
         
     }
 
@@ -124,5 +130,15 @@ public class Enemy : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, aggroRange);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Bullet")
+        {
+            TakeDamage(1);
+        }
+
+        
     }
 }

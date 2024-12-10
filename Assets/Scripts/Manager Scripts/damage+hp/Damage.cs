@@ -7,10 +7,12 @@ public class Damage : MonoBehaviour
     bool canDealDamage;
     List<GameObject> hasDealDamge;
 
+    public EItemType itemType;
     public float weaponLength;
     public float weaponDamage;
     void Start()
     {
+        itemType = EItemType.Default;
         canDealDamage = false;
 
         hasDealDamge = new List<GameObject>();
@@ -19,7 +21,7 @@ public class Damage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(canDealDamage)
+        if(canDealDamage && itemType == EItemType.Weapon)
         {
 
             RaycastHit hit;
