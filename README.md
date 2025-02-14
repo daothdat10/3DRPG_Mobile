@@ -1,4 +1,4 @@
-# Match3 Game in Unity
+# RPG Game in Unity
 
 
   <summary><strong>Note</strong></summary>
