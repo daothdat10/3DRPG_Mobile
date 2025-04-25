@@ -14,15 +14,15 @@ I use php language to create login and register function
 <div align="center"> <img src="https://github.com/user-attachments/assets/b1bdaff1-0e50-4372-ab91-c70ff91db597" alt="Game Settings" width="600"> 
  </div >  <h3 align="center">Buy Character </h3>
 <div align="center"> <img src="https://github.com/user-attachments/assets/b10968e5-8637-4a67-b201-b3748a66a51b" alt="Buy Character" width="600"> 
+/div >  <h3 align="center">Ads Google</h3>
+<div align="center"> <img src="https://github.com/user-attachments/assets/8791cd1c-4663-4214-bdfd-012926d384a7" alt="Ads Google" width="600"> 
 
    </div >  <h3 align="center">Wheel Of Fortune </h3>
-<div align="center"> <img src="https://github.com/user-attachments/assets/f1efb3f1-7ff4-43e8-b83c-84cfc8d822eb" alt="Buy Character" width="600"> 
-  <div align="center"> <img src="https://github.com/user-attachments/assets/c7e1940f-0e10-405a-b3a0-56fb5e88b92a" alt="Game Pause" width="600">
- <p><em>Game settings interface allows customization of sound and effects, Pause Game</em></p> </div> <h3 align="center">🎯 GAME OBJECTIVES</h3>
+<div align="center"> <img src="https://github.com/user-attachments/assets/f1efb3f1-7ff4-43e8-b83c-84cfc8d822eb" alt="Wheel Of Fortune" width="600"> 
+     </div >  <h3 align="center">Game Pause </h3>
+<div align="center"> <img src="https://github.com/user-attachments/assets/66760e58-088c-4680-b00f-f57d5663c396" alt="Game Pause" width="600"> 
+   </div >  <h3 align="center">Game Combat </h3>
+<div align="center"> <img src="https://github.com/user-attachments/assets/95362669-70dd-43a0-8d9e-610bcc549809" alt="Game Combat" width="600"> 
+  
 
-
-<div align="center"> <img src="https://github.com/user-attachments/assets/bac6846e-2fd4-416f-8c61-d2c00588b869" alt="Game Over Screen" width="600"> <p><em>Game over screen displaying score and achievements</em></p> </div>
-
-</div>
-
- <div align="center"> <h2>🎮 GAME DEMO 🎮</h2> <div align="center"> https://youtu.be/e-CDNi8Mhb4
+ <div align="center"> <h2>🎮 GAME DEMO 🎮</h2> <div align="center"> https://youtu.be/k_eWxNxvSig
