@@ -1,3 +1,9 @@
+<h1>Install</h1>
+
+  Xampp: used as virtual server
+  
+  Unity: used to run games
+
 <div align="center">
   <h1 align="center">Couple Run</h1>
   
